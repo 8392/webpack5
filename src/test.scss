@@ -1,0 +1,14 @@
+@keyframes myfirst
+{
+    from {background: rgb(30, 58, 216);}
+    to {background: rgb(238, 39, 116);}
+}
+
+
+$color: #ccc;
+.item{
+  height: 100px;
+  width: 100px;
+  background: $color;
+  animation: myfirst 1s;
+}
