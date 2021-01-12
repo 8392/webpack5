@@ -10,7 +10,11 @@ img.src = imgUrl
 app.append(img)
 
 const div = document.createElement('div')
-console.log("style", style)
 div.classList = style.active
 
+
+
+
 app.append(div)
+
+app.innerHTML = '<div class="iconfont icon-check-item"></div>'

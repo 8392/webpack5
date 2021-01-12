@@ -24,6 +24,16 @@ module.exports = {
         ]
       },
       {
+        test: /\.(woff|woff2|eot|ttf|otf|svg)$/,   // 处理字体
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: `assets/[name].[hash:5].[ext]`,
+            publicPath: '/'
+          }
+        }
+      },
+      {
         test: /\.s[ac]ss$/i,
         use: [
           // // 将 JS 字符串生成为 style 节点
