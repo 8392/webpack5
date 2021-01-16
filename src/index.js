@@ -13,8 +13,7 @@ const div = document.createElement('div')
 div.classList = style.active
 
 
-
-
 app.append(div)
 
 app.innerHTML = '<div class="iconfont icon-check-item"></div>'
+// console.log(999666)

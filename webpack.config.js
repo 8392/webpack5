@@ -1,9 +1,19 @@
 const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
-  mode: 'production',
+  // mode: 'production',
+  mode: 'development',
   entry: {
     main: './src/index.js'
+  },
+  devtool: 'eval-cheap-module-source-map',//开发环境
+  // devtool: 'cheap-module-source-map', //生产环境
+  devServer: {
+    // contentBase: './dist',
+    contentBase: path.join(__dirname, 'dist'),
+    open: true
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -69,6 +79,12 @@ module.exports = {
           // 也可能是 `less-loader`
         ],
       },
-    ]
-  }
+    ],
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, 'src/index.html')
+    }),
+    new CleanWebpackPlugin()
+  ]
 }
