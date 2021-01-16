@@ -6,6 +6,13 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "19378049",
+      "name": "包裹",
+      "font_class": "baoguo",
+      "unicode": "e61b",
+      "unicode_decimal": 58907
+    },
+    {
       "icon_id": "19167946",
       "name": "红包",
       "font_class": "hongbao",
