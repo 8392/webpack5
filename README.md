@@ -14,3 +14,5 @@ common js 动态引入
   "*.css"
 ],
 
+#    @at-root .bar 去掉最外层的嵌套
+

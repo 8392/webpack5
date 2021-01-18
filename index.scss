@@ -1,0 +1,72 @@
+$color: #f1f1f1;
+$namespace: 'artist';
+$--color-white: '#fff';
+$state-prefix: 'is-';
+
+@mixin b($block) {
+    $B: $namespace+'-'+$block !global;
+    
+    .#{$B} {
+      @content;
+    }
+}
+  
+
+.main{
+    color: $color;
+    .body{
+        background: $color;
+        font-size: 22px;
+    }
+}
+
+// @include b(button) {
+//     color: #ccc;
+//     font-size: 55px;
+// }
+
+@include b(aside) {
+    overflow: auto;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    .name{
+        font-weight: 500;
+    }
+}
+  
+
+@mixin when($state) {
+    @at-root {
+      &.#{$state-prefix + $state} {
+        @content;
+      }
+    }
+}
+
+@include b(aside) {
+    @include when(plain) {
+        &:hover,
+        &:focus {
+        background: $--color-white;
+        }
+    
+        &:active {
+        outline: none;
+        }
+    }
+}
+  
+
+.foo {
+    @at-root .bar {
+        color: gray;
+
+        @at-root button{
+            color:red;
+
+            @at-root span {
+                color: orange;
+            }
+        }
+    }
+}
