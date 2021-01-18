@@ -3,7 +3,7 @@
     <div @click="handleClick">点击</div>
     <Test v-if="isShow" />
     <div class="list" :key="index" v-for="(item, index) in list">
-      <el-popover placement="top" width="160" :value="item.isShow">
+      <el-popover placement="top" width="260" :value="item.isShow">
         <p>这是一段内容这是一段内容确定删除吗？</p>
         <div style="text-align: right; margin: 0">
           <el-button size="mini" type="text" @click="closeMeth(index)">取 消</el-button>
@@ -14,13 +14,9 @@
         <el-button slot="reference" @click="opeMeth(index)">删除</el-button>
       </el-popover>
     </div>
-    <el-popover placement="top" width="160" :value="oneShow">
-      <p>这是一段内容这是一段内容确定删除吗？</p>
-      <div style="text-align: right; margin: 0">
-        <el-button size="mini" type="text" @click="closeOne">取 消</el-button>
-        <el-button type="primary" size="mini" @click="closeOne">确 定</el-button>
-      </div>
-      <el-button slot="reference" @click="openOne">删除</el-button>
+    <el-popover trigger="manual" placement="top" width="260" v-model="oneShow">
+      <p class="tip">这是一段内容这是一段内容确定删除吗？</p>
+      <el-button slot="reference" @click="openOne1">删除</el-button>
     </el-popover>
     <el-button slot="reference" @click="openOne">打开</el-button>
   </div>
@@ -57,13 +53,18 @@ export default {
     closeOne() {
       this.oneShow = false;
     },
+    openOne1() {
+      setTimeout(() => {
+        this.oneShow = false;
+      }, 0);
+    },
     openOne() {
       setTimeout(() => {
         this.oneShow = true;
       }, 0);
-      setTimeout(() => {
-        this.oneShow = false;
-      }, 1000);
+      // setTimeout(() => {
+      //   this.oneShow = false;
+      // }, 2000);
     },
     handleClick() {
       this.isShow = !this.isShow;
@@ -96,5 +97,8 @@ export default {
 .list {
   background: #ccc;
   float: left;
+}
+.tip {
+  color: #f00;
 }
 </style>
